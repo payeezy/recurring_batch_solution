@@ -113,7 +113,7 @@ The first line of the transaction input file must be the Merchant Identification
 
 An example of the Merchant Identification line is shown below:
 
->email=riteshshah01@gmail.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+>email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
 
 ### Fields Line
 
