@@ -15,6 +15,12 @@ FirstAPI offers merchants the ability to send transactions and receive responses
 
 The batch files are .CSV files that are transferred between the merchant and FirstAPI using the First Data File Gateway (FDFG) secure transmission servers. FDFG supports multiple transmission protocols, including SFTP and HTTPS. The specific procedures in this document refer to the SFTP protocol, but others may be supported. Merchants should consult with their First Data implementation team for more details. 
 
+The following diagram shows the data flow through the batch transfer process:
+
+![data flow](https://github.com/payeezy/recurring_batch_solution/blob/master/images/BatchFileFlow.png "data transfer flow")
+
+
+
 ## Prerequisites
 
 Before sending and receiving files, merchants must first:
@@ -39,7 +45,7 @@ This document provides the following information:
 
 The following documents and resources provide supporting information for this document:
 
-- FirstAPI Developer Portal (https://developer.payeezy.com/) - This portal is where merchants register and
+- [FirstAPI Developer Portal](https://developer.payeezy.com/) - This portal is where merchants register and
 are boarded to FirstAPI. It also contains specifications for all supported APIs, sample requests and responses, and development guides.
 
 The following documents are provided by the First Data File Gateway team. Merchants and developers should contact their First Data implementation team for access to these documents.
@@ -189,8 +195,7 @@ Additional fields from the optional objects defined in the API may be added to t
   
 #### API Specification Location
 
-To access the FirstAPI specifications on the FirstAPI Developer Portal, [click here.]
-(https://developer.payeezy.com/apis)
+To access the FirstAPI specifications on the FirstAPI Developer Portal, [click here.](https://developer.payeezy.com/apis)
 
      
 ## Transaction Line(s)
@@ -209,7 +214,7 @@ The following examples show various input files.
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single Authorize transaction line. 
 
->email=riteshshah01@gmail.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+>email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
 >
 >merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
 >
@@ -221,7 +226,7 @@ Currently, the batch processing system does not support the Tokenize Credit Card
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single zero amount Authorize transaction line. 
 
->email=riteshshah01@gmail.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+>email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
 >
 >merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
 >
@@ -231,7 +236,7 @@ The following example shows a Credit Card Payments transaction batch input file 
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single Recurring transaction line. This example also shows the optional Local Tax fields. For complete definitions of the tax fields, refer to the API definition on the Developer Portal.
 
->email=riteshshah01@gmail.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+>email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
 >
 >merchant_ref,transaction_type,method,amount,currency_code,order_data.subtotal,order_data.vat_amount,order_data.local_tax_amount,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
 >
@@ -285,7 +290,7 @@ __Note:__ While developers and merchants can board to FirstAPI through the Devel
 Before beginning the batch transfer process, merchants will need to complete the following
 tasks:
 - Board to the appropriate gateway.
-- Register on the Developer Portal and complete the certification requirements. Refer to the FirstAPI Developer Portal (https://developer.payeezy.com) for details.
+- Register on the Developer Portal and complete the certification requirements. Refer to the [FirstAPI Developer Portal](https://developer.payeezy.com) for details.
 - Work with First Data L2 Support team to complete the FDFG Boarding Questionnaire and receive their SFG ID and password. Refer to the *First Data File Gateway Boarding Questionnaire.* The specific file naming standards needed for the batch process are described
 earlier in this document. Clients may also find the *First Data File Gateway External Client Boarding Guide* helpful during this step. 
 
@@ -303,7 +308,12 @@ Currently, the connection data is as follows:
 
 Any discrepancies between this guide and the documentation provided by FDFG should be resolved in favor of the requirements published by FDFG.
 
+## File Transfer Flow
 
+The following diagram shows the input and output flows for a batch file submitted to FirstAPI using SFTP. 
+
+
+![input-output flow](https://github.com/payeezy/recurring_batch_solution/blob/master/images/ProcessFlow.gif "input-output flow")
 
 ### Input File Transfer Flow
 
