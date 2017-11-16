@@ -27,8 +27,7 @@ Before sending and receiving files, merchants must first:
 
 - Onboard to the appropriate gateway.
 - Enroll and be certified on FirstAPI (the FirstAPI Developer Portal).
-- Onboard to the FDFG and receive a FDFG Merchant ID and password.  Additionally, this process
-will require the merchant to establish authentication information appropriate to the transmission protocol.
+- Onboard to the FDFG and receive a FDFG Merchant ID and password.  Additionally, this process will require the merchant to establish authentication information appropriate to the transmission protocol.
 
 
 ## About This Document
@@ -68,7 +67,9 @@ errors will be sent.
 Files sent to FirstAPI (input files) must be named using the following
 standard:
 
-> SFG-Merchant-Id.targetSystem.YYMMDDnn.filename.extension
+```
+    SFG-Merchant-Id.targetSystem.YYMMDDnn.filename.extension 
+```
 
 The following table describes the different components of this standard.
 
@@ -119,7 +120,10 @@ The first line of the transaction input file must be the Merchant Identification
 
 An example of the Merchant Identification line is shown below:
 
->email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+```
+email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+
+```
 
 ### Fields Line
 
@@ -137,58 +141,47 @@ The following example shows the Request payload for Credit Card Payments - Autho
 
 The fields in the non-optional object for this transaction are listed as:
 
->{
->  "merchant_ref": "{string}",
->
->  "transaction_type": "{string}",
->
->  "method": "{string}",
->
->  "amount": "{string}",
->
->  "partial_redemption": "{string}",
->
->  "split_tender_id": "{string}",
->
->  "currency_code": "{string}",
->
->  "credit_card": { 
->
->    "type": "{string}",
->
->    "cardholder_name": "{string}",
->
->    "card_number": "{string}",
->
->    "exp_date": "{string}",
->
->    "cvv": "{string}"
->
->  },
-
+```
+{
+  "merchant_ref": "{string}",
+  "transaction_type": "{string}",
+  "method": "{string}",
+  "amount": "{string}",
+  "partial_redemption": "{string}",
+  "split_tender_id": "{string}",
+  "currency_code": "{string}",
+  "credit_card": { 
+    "type": "{string}",
+    "cardholder_name": "{string}",
+    "card_number": "{string}",
+    "exp_date": "{string}",
+    "cvv": "{string}"
+  },
+```
 
 The corresponding Fields line for a Credit Card Payment transaction batch file is shown below: 
 
->merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+```
+merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+```
 
 Note that API objects containing multiple name/value pairs are represented in the batch Fields line as dot-separated names. For example, the credit_card object on the API contains the following name/value pairs:
 
->  "credit_card": {
->
->    "type": "{string}",
->
->    "cardholder_name": "{string}",
->
->    "card_number": "{string}",
->
->    "exp_date": "{string}",
->
->    "cvv": "{string}"
+```
+  "credit_card": {
+    "type": "{string}",
+    "cardholder_name": "{string}",
+    "card_number": "{string}",
+    "exp_date": "{string}",
+    "cvv": "{string}"
+```
 
 On the Fields line, the object name/value pairs are defined as:
 
->credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
-  
+```
+credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+```
+  
 Note that the credit_card.cvv field is not included in the Fields line for the batch file as it is not supported in batch.
 
 Additional fields from the optional objects defined in the API may be added to the batch Fields definition as necessary.
@@ -204,7 +197,9 @@ A transaction line contains the data for a single transaction. The line consists
 
 The following example shows a Transaction line corresponding to the Fields line defined above.
 
->tr-b,authorize,credit_card,1199,USD,visa,John Smith,4788250000028291,1020
+```
+tr-b,authorize,credit_card,1199,USD,visa,John Smith,4788250000028291,1020
+```
 
 ## Input File Examples
 
@@ -214,11 +209,13 @@ The following examples show various input files.
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single Authorize transaction line. 
 
->email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
->
->merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
->
->tr-b,authorize,credit_card,1199,USD,visa,John Smith,4788250000028291,1020
+```
+email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+
+merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+
+tr-b,authorize,credit_card,1199,USD,visa,John Smith,4788250000028291,1020
+```
 
 ### Credit Card Payments – Authorize (with Zero Amount to Receive Tokenized Card Number)
 
@@ -226,21 +223,25 @@ Currently, the batch processing system does not support the Tokenize Credit Card
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single zero amount Authorize transaction line. 
 
->email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
->
->merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
->
->tr-b,authorize,credit_card,0,USD,visa,John Smith,4788250000028291,1020
-  
+```
+email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+
+merchant_ref,transaction_type,method,amount,currency_code,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+
+tr-b,authorize,credit_card,0,USD,visa,John Smith,4788250000028291,1020
+```
+
 ### Credit Card Payments – Recurring (with Local Tax fields)
 
 The following example shows a Credit Card Payments transaction batch input file with the Merchant Identification Line, the Configuration line, and a single Recurring transaction line. This example also shows the optional Local Tax fields. For complete definitions of the tax fields, refer to the API definition on the Developer Portal.
 
->email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
->
->merchant_ref,transaction_type,method,amount,currency_code,order_data.subtotal,order_data.vat_amount,order_data.local_tax_amount,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
->
->tr-b,recurring,credit_card,1199,USD,1007,192,visa,John Smith,4788250000028291,1020
+```
+email=name01@email.com,token=fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6
+
+merchant_ref,transaction_type,method,amount,currency_code,order_data.subtotal,order_data.vat_amount,order_data.local_tax_amount,credit_card.type,credit_card.cardholder_name,credit_card.card_number,credit_card.exp_date
+
+tr-b,recurring,credit_card,1199,USD,1007,192,visa,John Smith,4788250000028291,1020
+```
 
 # Output File Format and Layout
 
@@ -253,7 +254,9 @@ The first lines of the transaction output file lists the fields that will appear
 
 The following example shows an output file configuration line that corresponds to the sample input file shown in the previous section.
 
->merchant_ref,correlation_id,transaction_status,validation_status,transaction_type,transaction_id,transaction_tag,method,amount,currency,avs,bank_resp_code,bank_message,gateway_resp_code,gateway_message,token.token_type,token.token_data.value,card.type,card.card_number,card.exp_date,card.cardholder_name,error_message
+```
+merchant_ref,correlation_id,transaction_status,validation_status,transaction_type,transaction_id,transaction_tag,method,amount,currency,avs,bank_resp_code,bank_message,gateway_resp_code,gateway_message,token.token_type,token.token_data.value,card.type,card.card_number,card.exp_date,card.cardholder_name,error_message
+```
 
 ## Transaction Line(s)
 
@@ -265,20 +268,22 @@ The fields in the transaction line correspond to the list of field names in the 
 
 The following example shows an output file with a configuration line and corresponding Transaction lines. 
 
->merchant_ref,correlation_id,transaction_status,validation_status,transaction_type,transaction_id,transaction_tag,method,amount,currency,avs,bank_resp_code,bank_message,gateway_resp_code,gateway_message,token.token_type,token.token_data.value,card.type,card.card_number,card.exp_date,card.cardholder_name,error_message
->
->tr-b,230.1488300027132,approved,success,authorize,627683,4417894,credit_card,1199,USD,,N,Approved,00,Transaction
+```
+merchant_ref,correlation_id,transaction_status,validation_status,transaction_type,transaction_id,transaction_tag,method,amount,currency,avs,bank_resp_code,bank_message,gateway_resp_code,gateway_message,token.token_type,token.token_data.value,card.type,card.card_number,card.exp_date,card.cardholder_name,error_message
+
+tr-b,230.1488300027132,approved,success,authorize,627683,4417894,credit_card,1199,USD,,N,Approved,00,Transaction
   Normal,FDToken,1774965335570026,visa,0026,0420,John Smith,
-  >
-  >tr-a,230.1488300028792,approved,success,authorize,885145,4417896,credit_card,1299,USD,,N,Approved,00,Transaction
+
+tr-a,230.1488300028792,approved,success,authorize,885145,4417896,credit_card,1299,USD,,N,Approved,00,Transaction
   Normal,FDToken,1774965335570026,visa,0026,0420,John Smith,
-  >
-  >tr-c,230.1488300030071,approved,success,authorize,383305,4417899,credit_card,1099,USD,,N,Approved,00,Transaction
+
+tr-c,230.1488300030071,approved,success,authorize,383305,4417899,credit_card,1099,USD,,N,Approved,00,Transaction
   Normal,FDToken,1774965335570026,visa,0026,0420,John Smith,
-  >
-  >tr-d,230.1488300031086,approved,success,authorize,025854,4417902,credit_card,1199,USD,,N,Approved,00,Transaction
-  Normal,FDToken,1774965335570026,visa,0026,0420,John Smith,
-  
+
+tr-d,230.1488300031086,approved,success,authorize,025854,4417902,credit_card,1199,USD,,N,Approved,00,Transaction
+  Normal,FDToken,1774965335570026,visa,0026,0420,John Smith,
+```
+  
 # File Transfer Process
 
 Both input and output files are transferred between the client and First Data using the First Data File Gateway (FDFG). FDFG supports multiple secure transmission protocols, including SFTP and HTTPS. The procedures in this guide refer to file transfer using SFTP through FDFG’s Sterling File Gateway (SFG). 
