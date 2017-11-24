@@ -4,10 +4,12 @@ FirstAPI offers merchants the ability to send transactions and receive responses
 
 - Credit Card Payments
   - Authorize
+  - Purchase
   - Recurring
 
 - Token-Based Payments
-  - Authorize  
+  - Authorize
+  - Purchase
   - Recurring
 
 
