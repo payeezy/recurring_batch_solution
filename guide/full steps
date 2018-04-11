@@ -1,0 +1,651 @@
+
+
+
+
+FirstAPI Batch
+Solution Boarding
+(Internal)
+
+
+
+Initiate
+merchant boarding on IPG Gateway with FirstAPI enablement.Merchant
+approved/boarded to IPGLevel
+2 (from specific country/region) retrieves IPG MID, Store #, and DBA Name from
+IPG StoreLevel
+2 retrieves Developer email address from Merchant or DeveloperLevel
+2 prepares IPG Boarding Spreadsheet with retrieved information and emails to FirstAPI
+at payeezyboarding@firstdata.com.FirstAPI associates Merchant ID with
+Developer Account (see Step 3.)Merchant
+registers as Developer to FirstAPI Platform using FirstAPI Developer Portal (https://developer.payeezy.com)Register/sign-up
+Developer AccountCertify
+Developer AccountUse
+developer e-mail to pass information to Level 2 Support team in Step 2c.Board
+Merchant to First Data File Gateway. Allow approximately 2-3 weeks for this
+process.Level
+2 provides merchant with the FDFG
+External Client Boarding document, located at the File
+Gateway Migration documentation sharepoint and reviews the File
+Gateway requirements described in this document and the specifics described in
+the FirstAPI Recurring Batch Solution
+Implementation Guide. Level
+2 initiates a request for a new client transmission entry using the link and
+steps (shown below) on the Managed
+File Transfers page (http://mft.1dc.com/). 
+
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+Note that the L2 associate who initiates the
+request must have previously registered in the MFT system. (Click here to access the Registration Entry page, or see the link in the
+screen capture of the Managed File Transfer page, below. Registration requires
+managerial approval.)
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+On
+the Open Transmission Request page:Select
+New Transmission Job(s) (New JCL / Job),
+and then click Next.Select
+US / North America as the Region of
+Transmission, and then click Next.Select
+the following:
+Method of Transmission: First Data File
+Gateway
+Type of Connectivity: Internet (using
+web browser, SFTP or FTPS protocols)
+
+Note the link on this page for IP address information for whitelisting if your
+client's firewall needs to be opened for file transfers, as shown below.
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+Click Next to continue.Complete
+the questionnaire on the General/Client Information page. For general
+definitions, refer to the Transmission
+Request Form Fields document. This document is also
+available by clicking the question mark icon next to any field name. 
+The following table lists the options and answers that are specific to
+establishing connectivity for the Recurring Batch Solution. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+   
+   For this field…
+   
+   
+   Enter/select this…
+   
+  
+ 
+ 
+  
+  Method / System Information 
+  
+ 
+ 
+  
+  First
+  Data Requestor Name
+  
+  
+  Should
+  pre-populate with L2 associate information.
+  
+ 
+ 
+  
+  First
+  Data Requestor Phone 
+  
+ 
+ 
+  
+  First
+  Data Requestor E-mail
+  
+ 
+ 
+  
+  Request
+  Title
+  
+  
+  Set up
+  new FirstAPI connectivity for [Client]
+  
+ 
+ 
+  
+  Platform
+  
+  
+  Other
+  – NA
+  
+ 
+ 
+  
+  Merchant
+  Alliance   
+  
+  
+  Non-Alliance
+  
+ 
+ 
+  
+  Requested
+  Test Date
+  
+  
+  Enter
+  client-requested test date
+  
+ 
+ 
+  
+  Requested
+  Production Date 
+  
+  
+  Enter
+  client-requested test date
+  
+ 
+ 
+  
+  Change
+  Record Number   
+  
+  
+  Enter
+  previous CR number if it exists (not typically used.)
+  
+ 
+ 
+  
+  Method / System Information 
+  
+ 
+ 
+  
+  Direction
+  of File Transmissions To FDFG 
+  
+  
+  Both
+  Incoming & Outgoing
+  
+ 
+ 
+  
+  Incoming
+  Transmission Job Count    (numeric
+  values only - maximum of 100) 
+  
+  
+  Typically,
+  this will be '1' unless the client wants multiple batch transmissions daily. 
+  
+ 
+ 
+  
+  Transmission
+  Method From Client To FDFG
+  
+  
+  SFTP
+  
+ 
+ 
+  
+  Transmission
+  Method From FDFG To Platform 
+  
+  
+  Pickup
+  Mailbox  
+  
+ 
+ 
+  
+  Outgoing
+  Transmission Job Count    (numeric
+  values only - maximum of 100) 
+  
+  
+  Typically,
+  '1'
+  
+ 
+ 
+  
+  Transmission
+  Method From Platform To FDFG
+  
+  
+  SFTP
+  Push 
+  
+ 
+ 
+  
+  Transmission
+  Method From FDFG To Client 
+  
+  
+  Pickup
+  Mailbox  
+  
+ 
+ 
+  
+  Existing
+  MWAY User Name 
+  
+  
+  Enter
+  the client's MessageWay user name, if applicable (this won't typically
+  happen.)
+  
+ 
+ 
+  
+  Existing
+  FDFG User 
+  
+  
+  Select
+  the appropriate answer. Typically, this is 'No'.
+  
+  If it is 'Yes', you will need to enter the existing User/Community name. 
+  
+  If 'No', accept the default User Protocol of FDC Mailbox Delivery.
+  
+ 
+ 
+  
+  Upload
+  Questionnaire Form  (Doc file
+  only)    
+  
+  
+  If
+  your team has a Questionnaire form they use with clients, you can upload it
+  here. 
+  
+ 
+ 
+  
+  Upload
+  Jobs List   (Excel file only)    
+  
+  
+  If
+  your team has a Jobs list, you can upload it here.
+  
+ 
+ 
+  
+  Client Information
+  
+ 
+ 
+  
+  Client
+  name, contact, etc.
+  
+  
+  Fill
+  in the information for the specific client. Required fields are marked with
+  an orange icon. 
+  
+ 
+ 
+  
+  Request
+  Summary
+  
+  
+  Include
+  the following note:
+  The
+  other NA system = UA03161-PAYEZ01
+  
+ 
+
+
+ 
+
+Click
+Next to continue.
+
+Complete
+the questionnaire on the Transmission Details page. For general definitions,
+refer to the Transmission
+Request Form Fields document. This document is also
+available by clicking the question mark icon next to any field name. 
+The following table lists the options and answers that are specific to
+establishing connectivity for the Recurring Batch Solution.
+
+
+ 
+  
+   
+   For this field…
+   
+   
+   Enter/select this…
+   
+  
+ 
+ 
+  
+  Transmission
+  Job 1
+  
+ 
+ 
+  
+  Direction
+  
+  
+  
+  Incoming
+  
+ 
+ 
+  
+  Jobname
+  
+  
+  (This
+  is usually determined by the Transmissions team)
+  
+ 
+ 
+  
+  Processing
+  Type/Product
+  
+  
+  API
+  
+ 
+ 
+  
+  Service
+  Level Agreement
+  
+  
+  Per
+  merchant. If yes, fill in SLA Date(s) / Time(s) in next field.
+  
+ 
+ 
+  
+  Funding
+  File
+  
+  
+  No
+  
+ 
+ 
+  
+  Existing
+  Job to Copy
+  
+  
+  For
+  initial client, leave blank. Once we have fully implemented a client, use the
+  Job Name here for subsequent clients.
+  
+ 
+ 
+  
+  Destination
+  Dataset / Filename 
+  
+  
+  Same
+  as incoming file
+  
+ 
+ 
+  
+  Group
+  E-mail to Receive Notifications
+  
+  
+  Per
+  client
+  
+ 
+ 
+  
+  Transmission
+  Job 2
+  
+ 
+ 
+  
+  Direction
+  
+  
+  
+  Outgoing
+  
+ 
+ 
+  
+  Jobname
+  
+  
+  (This
+  is usually determined by the Transmissions team)
+  
+ 
+ 
+  
+  Processing
+  Type/Product
+  
+  
+  Transaction
+  Acknowledgements
+  
+ 
+ 
+  
+  Service
+  Level Agreement
+  
+  
+  Per
+  merchant. If yes, fill in SLA Date(s) / Time(s) in next field.
+  
+ 
+ 
+  
+  Funding
+  File
+  
+  
+  No
+  
+ 
+ 
+  
+  Existing
+  Job to Copy
+  
+  
+  For
+  initial client, leave blank. Once we have fully implemented a client, use the
+  Job Name here for subsequent clients.
+  
+ 
+ 
+  
+  Destination
+  Dataset / Filename 
+  
+  
+  Same
+  as file received from platform
+  
+ 
+ 
+  
+  Group
+  E-mail to Receive Notifications
+  
+  
+  Per
+  client
+  
+ 
+
+
+ 
+
+Click
+Submit to complete the request.
+
+The
+L2 associate initiating the request receives an email with the Transmission
+Request ID.A
+transmission analyst is assigned to the request and communicates any
+information that needs to be clarified/updated.The
+client's public key must be provided at this time.The
+Transmission Request is approved and the merchant receives appropriate IDs and
+passwords for the File Gateway.L2
+provides the following information to FirstAPI team to set up the batch server:Merchant
+File Gateway IDDays
+on which the merchant prefers the batch process be run (for example, daily.)The
+time the merchant prefers the batch process should be run. This is subject to
+available schedule.  How
+many times the batch process should be run on the days it is scheduled to runThe
+interval for multiple run processes (if more than once/day)Estimated
+size of each job (to use to set estimated run duration)FirstAPI
+team completes the CA7x Job Setup PROD spreadsheet and forwards it to the
+DevOps team.DevOps
+uses the spreadsheet to create a CR/iPlan for the CA7 team to schedule the
+batch job(s) for the merchants. CA7 contacts DevOpps when the job is scheduled;
+DevOps validates.(48 hours)DevOps
+contacts FirstAPI with the validated information; FirstAPI contacts L2.
+Merchants can begin sending files as soon as the job is set up.To
+access support for batch file transmission issues:The
+Transmission team assists in transmission issues (connectivity, transmission) –
+Contact the First Data Customer Support Center at (800) 555-9966. Please
+identify the merchant as a First Data File Gateway client and have the
+JOBNAME/Class ID available with any other pertinent information to help
+expedite the inquiry.  The FirstAPI
+team assists with batch processing and payment transaction errors – contact
+through support.payeezy@firstdata.com or 855-799-0790.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
